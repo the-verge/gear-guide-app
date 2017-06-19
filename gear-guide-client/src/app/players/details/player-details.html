@@ -1,0 +1,27 @@
+<div>
+    <div>
+        <div class="player-icon">
+            <img class="img-responsive" alt="{{vm.player.name}}" ng-src="{{vm.player.imgSrc}}">
+        </div>
+        <div class="player-description">
+            <h1>{{vm.player.name}}</h1>
+        </div>
+    </div>
+    <uib-tabset active="active">
+        <uib-tab index="0" heading="Guitars">
+            <uib-tab-heading>
+                <a><img class="img-responsive" alt="Guitars" ng-src="/assets/images/rsz_guitar-icon.png"></a>
+            </uib-tab-heading>
+        </uib-tab>
+        <uib-tab index="1" heading="Amplifiers">
+            <uib-tab-heading>
+                <a><img class="img-responsive" alt="Amplifiers" ng-src="/assets/images/rsz_amp-icon.png"></a>
+            </uib-tab-heading>
+        </uib-tab>
+        <uib-tab index="2" heading="Effects">
+            <uib-tab-heading>
+                <a><img class="img-responsive" alt="Effects" ng-src="/assets/images/rsz_amp-icon.png"></a>
+            </uib-tab-heading>
+        </uib-tab>
+    </uib-tabset>
+</div>

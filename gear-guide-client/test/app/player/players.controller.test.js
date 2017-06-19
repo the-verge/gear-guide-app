@@ -1,4 +1,4 @@
-import PlayerController from '../../../src/app/player/players.controller';
+import PlayerController from '../../../src/app/players/players.controller';
 
 describe('PlayerController test', () => {
 

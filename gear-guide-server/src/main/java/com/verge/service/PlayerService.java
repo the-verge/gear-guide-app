@@ -13,11 +13,15 @@ import java.util.stream.Collectors;
 @Service
 public class PlayerService {
 
-    @Autowired
     private PlayerRepository repository;
 
-    @Autowired
     private PlayerMapper mapper;
+
+    @Autowired
+    public PlayerService(PlayerRepository repository, PlayerMapper mapper) {
+        this.repository = repository;
+        this.mapper = mapper;
+    }
 
     public List<PlayerInfo> findAll() {
         List<Player> players = Lists.newArrayList(repository.findAll());

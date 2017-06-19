@@ -1,15 +1,22 @@
 package com.verge.entity;
 
+import com.verge.utiliities.HasImg;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import java.util.Set;
 
 @Entity
 @Table(name = "Player")
-public class Player {
+public class Player implements HasImg {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -18,19 +25,23 @@ public class Player {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "age")
-    private Integer age;
-
     @Column(name = "description")
     private String description;
 
-    @Column(name = "img")
+    @Column(name = "image")
     private String image;
 
-    public Player(String name, Integer age) {
-        this.name = name;
-        this.age = age;
-    }
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "Player_Guitars",
+            joinColumns = {@JoinColumn(name = "player_id", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "guitar_id", referencedColumnName = "id")})
+    private Set<Guitar> guitars;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "Player_Amplifiers",
+            joinColumns = {@JoinColumn(name = "player_id", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "amplifier_id", referencedColumnName = "id")})
+    private Set<Amplifier> amplifiers;
 
     public Player() {
     }
@@ -51,14 +62,6 @@ public class Player {
         this.name = name;
     }
 
-    public Integer getAge() {
-        return age;
-    }
-
-    public void setAge(Integer age) {
-        this.age = age;
-    }
-
     public String getDescription() {
         return description;
     }
@@ -67,11 +70,28 @@ public class Player {
         this.description = description;
     }
 
+    @Override
     public String getImage() {
         return image;
     }
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public Set<Guitar> getGuitars() {
+        return guitars;
+    }
+
+    public void setGuitars(Set<Guitar> guitars) {
+        this.guitars = guitars;
+    }
+
+    public Set<Amplifier> getAmplifiers() {
+        return amplifiers;
+    }
+
+    public void setAmplifiers(Set<Amplifier> amplifiers) {
+        this.amplifiers = amplifiers;
     }
 }

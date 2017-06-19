@@ -20,6 +20,7 @@
         <h2.version>1.4.194</h2.version>
         <guava.version>21.0</guava.version>
         <junit.version>4.12</junit.version>
+        <model.mapper.version>1.0.0</model.mapper.version>
     </properties>
 
     <dependencyManagement>
@@ -46,6 +47,11 @@
                 <groupId>com.google.guava</groupId>
                 <artifactId>guava</artifactId>
                 <version>${guava.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.modelmapper</groupId>
+                <artifactId>modelmapper</artifactId>
+                <version>${model.mapper.version}</version>
             </dependency>
 
             <!-- Database dependencies -->

@@ -13,8 +13,12 @@ import java.util.List;
 @RestController
 public class PlayerController implements PlayerResource {
 
-    @Autowired
     private PlayerService playerService;
+
+    @Autowired
+    public PlayerController(PlayerService playerService) {
+        this.playerService = playerService;
+    }
 
     @Override
     public List<PlayerInfo> findAll() {

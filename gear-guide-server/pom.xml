@@ -55,10 +55,14 @@
 
 
         <!-- Dev dependencies -->
-       <dependency>
+        <dependency>
            <groupId>com.google.guava</groupId>
            <artifactId>guava</artifactId>
-       </dependency>
+        </dependency>
+        <dependency>
+            <groupId>org.modelmapper</groupId>
+            <artifactId>modelmapper</artifactId>
+        </dependency>
 
        <!-- Database dependencies -->
         <dependency>

@@ -1,15 +1,21 @@
 package com.verge.dto;
 
 
+import java.util.List;
+
 public class PlayerInfo {
 
     private Long id;
 
     private String name;
 
-    private Integer age;
+    private String description;
 
     private String imgSrc;
+
+    private List<GearInfo> guitars;
+
+    private List<GearInfo> amps;
 
     public Long getId() {
         return id;
@@ -27,12 +33,12 @@ public class PlayerInfo {
         this.name = name;
     }
 
-    public Integer getAge() {
-        return age;
+    public String getDescription() {
+        return description;
     }
 
-    public void setAge(Integer age) {
-        this.age = age;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getImgSrc() {
@@ -41,5 +47,21 @@ public class PlayerInfo {
 
     public void setImgSrc(String imgSrc) {
         this.imgSrc = imgSrc;
+    }
+
+    public List<GearInfo> getGuitars() {
+        return guitars;
+    }
+
+    public void setGuitars(List<GearInfo> guitars) {
+        this.guitars = guitars;
+    }
+
+    public List<GearInfo> getAmps() {
+        return amps;
+    }
+
+    public void setAmps(List<GearInfo> amps) {
+        this.amps = amps;
     }
 }

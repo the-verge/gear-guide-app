@@ -1,7 +1,5 @@
 package com.verge.entity;
 
-import com.verge.utiliities.HasImg;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,11 +7,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Amplifier")
-public class Amplifier implements HasImg {
+@Table(name = "Effect")
+public class Effect {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -26,8 +25,9 @@ public class Amplifier implements HasImg {
     @Column(name = "model")
     private String model;
 
-    @Column(name = "year")
-    private Integer year;
+    @OneToOne
+    @JoinColumn(name = "effect_type_id")
+    private EffectType effectType;
 
     @Column(name = "description")
     private String description;
@@ -59,12 +59,12 @@ public class Amplifier implements HasImg {
         this.model = model;
     }
 
-    public Integer getYear() {
-        return year;
+    public EffectType getEffectType() {
+        return effectType;
     }
 
-    public void setYear(Integer year) {
-        this.year = year;
+    public void setEffectType(EffectType effectType) {
+        this.effectType = effectType;
     }
 
     public String getDescription() {
@@ -75,7 +75,6 @@ public class Amplifier implements HasImg {
         this.description = description;
     }
 
-    @Override
     public String getImage() {
         return image;
     }

@@ -13,8 +13,10 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.context.support.DependencyInjectionTestExecutionListener;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.junit.Assert.assertThat;
 
 @RunWith(SpringRunner.class)
@@ -30,6 +32,15 @@ public class PlayerRepositoryITest {
     public void testFindAll() {
         List<Player> entities = Lists.newArrayList(repository.findAll());
         assertThat(entities.size(), equalTo(6));
+
+        List<String> playerNames = getPlayerNames(entities);
+        assertThat(playerNames, containsInAnyOrder("Slash", "Jimi Hendrix", "Jimmy Page", "Eric Clapton", "John Mayer", "Keith Richards"));
+    }
+
+    private List<String> getPlayerNames(List<Player> entities) {
+        return entities.stream()
+                .map(e -> e.getName())
+                .collect(Collectors.toList());
     }
 
 }

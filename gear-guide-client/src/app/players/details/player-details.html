@@ -1,27 +1,55 @@
 <div>
+    <div ncy-breadcrumb></div>
     <div>
-        <div class="player-icon">
+        <div class="gear-guide-icon">
             <img class="img-responsive" alt="{{vm.player.name}}" ng-src="{{vm.player.imgSrc}}">
         </div>
         <div class="player-description">
             <h1>{{vm.player.name}}</h1>
         </div>
     </div>
-    <uib-tabset active="active">
+    <uib-tabset>
         <uib-tab index="0" heading="Guitars">
             <uib-tab-heading>
-                <a><img class="img-responsive" alt="Guitars" ng-src="/assets/images/rsz_guitar-icon.png"></a>
+                <img class="img-responsive" alt="Guitars" ng-src="/assets/images/guitar-icon.png">
             </uib-tab-heading>
+            <div class="row">
+                <div class="col-md-3" ng-repeat="guitar in vm.player.guitars">
+                    <div class="gear-guide-icon">
+                        <a href="#">
+                            <img class="img-responsive" alt="{{guitar.model}}" ng-src="{{guitar.imgSrc}}">
+                        </a>
+                    </div>
+                    <div>
+                        <!--<h4 ng-show="guitar.year != null">{{guitar.year}}</h4>-->
+                        <h4>{{guitar.manufacturer.name}} {{guitar.model}}</h4>
+                    </div>
+                </div>
+            </div>
         </uib-tab>
         <uib-tab index="1" heading="Amplifiers">
             <uib-tab-heading>
-                <a><img class="img-responsive" alt="Amplifiers" ng-src="/assets/images/rsz_amp-icon.png"></a>
+                <img class="img-responsive" alt="Amplifiers" ng-src="/assets/images/amp-icon.png">
             </uib-tab-heading>
+            <div class="row">
+                <div class="col-md-3" ng-repeat="guitar in vm.player.amplifiers">
+                    <div class="gear-guide-icon">
+                        <a href="#">
+                            <img class="img-responsive" alt="{{amplifier.model}}" ng-src="{{amplifier.imgSrc}}">
+                        </a>
+                    </div>
+                    <div>
+                        <!--<h4 ng-show="guitar.year != null">{{guitar.year}}</h4>-->
+                        <h4>{{guitar.manufacturer.name}} {{guitar.model}}</h4>
+                    </div>
+                </div>
+            </div>
         </uib-tab>
         <uib-tab index="2" heading="Effects">
             <uib-tab-heading>
-                <a><img class="img-responsive" alt="Effects" ng-src="/assets/images/rsz_amp-icon.png"></a>
+                <img class="img-responsive" alt="Effects" ng-src="/assets/images/rsz_amp-icon.png">
             </uib-tab-heading>
+
         </uib-tab>
     </uib-tabset>
 </div>

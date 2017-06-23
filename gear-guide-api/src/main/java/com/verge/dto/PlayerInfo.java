@@ -15,7 +15,7 @@ public class PlayerInfo {
 
     private List<GearInfo> guitars;
 
-    private List<GearInfo> amps;
+    private List<GearInfo> amplifiers;
 
     public Long getId() {
         return id;
@@ -57,11 +57,11 @@ public class PlayerInfo {
         this.guitars = guitars;
     }
 
-    public List<GearInfo> getAmps() {
-        return amps;
+    public List<GearInfo> getAmplifiers() {
+        return amplifiers;
     }
 
-    public void setAmps(List<GearInfo> amps) {
-        this.amps = amps;
+    public void setAmplifiers(List<GearInfo> amplifiers) {
+        this.amplifiers = amplifiers;
     }
 }

@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -17,8 +19,9 @@ public class Guitar implements HasImg {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "manufacturer")
-    private String manufacturer;
+    @ManyToOne
+    @JoinColumn(name = "manufacturer_id")
+    private Manufacturer manufacturer;
 
     @Column(name = "model")
     private String model;
@@ -40,11 +43,11 @@ public class Guitar implements HasImg {
         this.id = id;
     }
 
-    public String getManufacturer() {
+    public Manufacturer getManufacturer() {
         return manufacturer;
     }
 
-    public void setManufacturer(String manufacturer) {
+    public void setManufacturer(Manufacturer manufacturer) {
         this.manufacturer = manufacturer;
     }
 

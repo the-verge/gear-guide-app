@@ -23,3 +23,23 @@ INSERT INTO Player_Guitars (player_id, guitar_id) VALUES
   (2, 6),
   (2, 1),
   (2, 4);
+
+INSERT INTO Amplifier (id, manufacturer, model, year, image, description) VALUES
+  (1, 'Marshall', 'JTM45', 1964, 'marshall-jtm45.png', 'The JTM series was a relatively short-lived reissue of the original Marshall amps and featured some non-traditional combination of features.'),
+  (2, 'Marshall', '1959', 1965, 'marshall-1959.png', 'The Marshall Super Lead Model 1959 is a guitar amplifier head made by Marshall. One of the famous Marshall Plexis, it was introduced in 1965 and with its associated 4×12" cabinets gave rise to the "Marshall stack".'),
+  (3, 'Marshall', '1962', 1965, 'marshall-1962.png', 'The 1962, 2 x 12″ combo was called the ‘Bluesbreaker’ because it was famously used by Eric Clapton with the influential British blues rockers, John Mayall’s Bluesbreakers, in 1966. It was this heady, ‘high in the mix’ sound that made the legend of the 1962.'),
+  (4, 'Fender', 'Bassman', 1952, 'fender-bassman.png', 'The Fender Bassman is a bass amplifier introduced by Fender during 1952.[citation needed] Initially intended to amplify bass guitars, the 5B6 Bassman was used by musicians for other instrument amplification, including the electric guitar, harmonica, and pedal steel guitars.'),
+  (5, 'Fender', 'Deluxe Reverb', 1972, 'fender-deluxe-reverb.png', 'The Fender 65 DELUXE REVERB Valve Electric Guitar Amplifier Combo,22 Watts, 1X12" Jensen Speaker, Black. Classic looks and sounds from this legendary Vintage Reissue combo, loved by guitarists for its snappy guitar tones.'),
+  (6, 'Vox', 'AC30', 1955, 'vox-ac30.png', 'The Vox AC30 is a guitar amplifier manufactured by Vox. It was introduced in 1958 to meet the growing demand for louder amplifiers. Characterised by its "jangly" high-end sound it has become widely recognized by British musicians and others.'),
+  (7, 'Marshall', 'JCM800', 1981, 'marshall-jcm800.png', 'The JCM800 series (Model 2210 and others) is a line of guitar amplifiers made by Marshall Amplification. The JCM800 amplifiers became a staple of 1980s hard rock and heavy metal bands.');
+
+INSERT INTO Player_Amplifiers (player_id, amplifier_id) VALUES
+  (1, 1),
+  (1, 2),
+  (1, 6),
+  (2, 4),
+  (2, 2),
+  (4, 3),
+  (4, 1),
+  (6, 6),
+  (6, 4);

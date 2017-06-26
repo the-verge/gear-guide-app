@@ -35,6 +35,9 @@ public class Amplifier implements HasImg {
     @Column(name = "image")
     private String image;
 
+    @Column(name = "valves")
+    private String valves;
+
     public Long getId() {
         return id;
     }
@@ -82,5 +85,13 @@ public class Amplifier implements HasImg {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public String getValves() {
+        return valves;
+    }
+
+    public void setValves(String valves) {
+        this.valves = valves;
     }
 }

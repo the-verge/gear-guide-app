@@ -1,0 +1,28 @@
+<div>
+    <div ncy-breadcrumb></div>
+    <div class="row">
+        <div class="gear-guide-icon col-md-2">
+            <img class="img-responsive" alt="{{vm.guitar.model}}" ng-src="{{vm.guitar.imgSrc}}">
+        </div>
+        <div class="col-md-4">
+            <h3 class="guitar-details-heading">{{vm.guitar.model}}</h3>
+        </div>
+    </div>
+    <hr/>
+    <div class="guitar-details row">
+        <div class="col-md-8">{{vm.guitar.description}}</div>
+    </div>
+    <hr/>
+    <div class="guitar-details row">
+        <div class="guitar-details-key col-md-2">Manufacturer:</div>
+        <div class="guitar-details-value col-md-6"><a href="#">{{vm.guitar.manufacturer.name}}</a></div>
+    </div>
+    <div class="guitar-details row">
+        <div class="guitar-details-key col-md-2">Pickups:</div>
+        <div class="guitar-details-value col-md-6">{{vm.guitar.pickups}}</div>
+    </div>
+    <div class="guitar-details row">
+        <div class="guitar-details-key col-md-2">Scale length:</div>
+        <div class="guitar-details-value col-md-6">{{vm.guitar.scale}}"</div>
+    </div>
+</div>

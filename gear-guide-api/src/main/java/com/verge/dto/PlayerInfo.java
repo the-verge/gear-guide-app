@@ -13,9 +13,9 @@ public class PlayerInfo {
 
     private String imgSrc;
 
-    private List<GearInfo> guitars;
+    private List<GuitarInfo> guitars;
 
-    private List<GearInfo> amplifiers;
+    private List<AmpInfo> amplifiers;
 
     public Long getId() {
         return id;
@@ -49,19 +49,19 @@ public class PlayerInfo {
         this.imgSrc = imgSrc;
     }
 
-    public List<GearInfo> getGuitars() {
+    public List<GuitarInfo> getGuitars() {
         return guitars;
     }
 
-    public void setGuitars(List<GearInfo> guitars) {
+    public void setGuitars(List<GuitarInfo> guitars) {
         this.guitars = guitars;
     }
 
-    public List<GearInfo> getAmplifiers() {
+    public List<AmpInfo> getAmplifiers() {
         return amplifiers;
     }
 
-    public void setAmplifiers(List<GearInfo> amplifiers) {
+    public void setAmplifiers(List<AmpInfo> amplifiers) {
         this.amplifiers = amplifiers;
     }
 }

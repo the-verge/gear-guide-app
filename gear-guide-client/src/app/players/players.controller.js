@@ -1,9 +1,9 @@
 export default class PlayerController {
 
-    constructor(Player) {
+    constructor(playerResource) {
         'ngInject';
 
-        this.players = Player.get();
+        this.players = playerResource.get();
     }
 
 }

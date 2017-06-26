@@ -6,9 +6,14 @@ import com.verge.entity.Player;
 import com.verge.mapping.PlayerMapper;
 import com.verge.repository.PlayerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
+
+import static org.springframework.http.HttpStatus.NOT_FOUND;
+import static org.springframework.http.HttpStatus.OK;
 
 @Service
 public class PlayerService {
@@ -30,9 +35,9 @@ public class PlayerService {
                 .collect(Collectors.toList());
     }
 
-    public PlayerInfo findById(Long id) {
-        Player player = repository.findOne(id);
-        return mapper.entityToDto(player);
+    public ResponseEntity<PlayerInfo> findById(Long id) {
+        Optional<Player> player = Optional.ofNullable(repository.findOne(id));
+        return player.isPresent() ? new ResponseEntity<>(mapper.entityToDto(player.get()), OK) : new ResponseEntity<>(NOT_FOUND);
     }
 
     public List<PlayerInfo> nameLike(String query) {

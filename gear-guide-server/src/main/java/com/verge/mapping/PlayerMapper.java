@@ -17,14 +17,14 @@ public class PlayerMapper implements EntityToDto<Player, PlayerInfo> {
 
     private ImgSrcResolver srcResolver;
 
-    private GearMapper mapper;
+    private GuitarMapper guitarMapper;
 
     private ModelMapper modelMapper;
 
     @Autowired
-    public PlayerMapper(ImgSrcResolver srcResolver, GearMapper mapper, ModelMapper modelMapper) {
+    public PlayerMapper(ImgSrcResolver srcResolver, GuitarMapper guitarMapper, ModelMapper modelMapper) {
         this.srcResolver = srcResolver;
-        this.mapper = mapper;
+        this.guitarMapper = guitarMapper;
         this.modelMapper = modelMapper;
     }
 
@@ -32,7 +32,7 @@ public class PlayerMapper implements EntityToDto<Player, PlayerInfo> {
     public PlayerInfo entityToDto(Player entity) {
         PlayerInfo dto = modelMapper.map(entity, PlayerInfo.class);
         dto.setImgSrc(srcResolver.resolveImgSrc(entity));
-        dto.setGuitars(mapper.entitiesToDtos(entity.getGuitars()));
+        dto.setGuitars(guitarMapper.entitiesToDtos(entity.getGuitars()));
         return dto;
     }
 

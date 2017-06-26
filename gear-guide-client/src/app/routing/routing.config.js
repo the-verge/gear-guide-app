@@ -23,11 +23,11 @@ export default function ($stateProvider, $urlRouterProvider) {
            })
             .state('guitar-details', {
                 url: '/guitars/:id',
-                templateUrl: 'app/players/details/guitar-details.html',
+                templateUrl: 'app/guitars/details/guitar-details.html',
                 controller: 'guitarDetailsController',
                 controllerAs: 'vm',
                 ncyBreadcrumb: {
-                    label: '{{vm.guitar.name}}'
+                    label: '{{vm.guitar.model}}'
                 }
             });
 

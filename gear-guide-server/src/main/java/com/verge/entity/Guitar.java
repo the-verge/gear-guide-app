@@ -35,6 +35,12 @@ public class Guitar implements HasImg {
     @Column(name = "image")
     private String image;
 
+    @Column(name = "pickups")
+    private String pickups;
+
+    @Column(name = "scale")
+    private String scale;
+
     public Long getId() {
         return id;
     }
@@ -82,5 +88,21 @@ public class Guitar implements HasImg {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public String getPickups() {
+        return pickups;
+    }
+
+    public void setPickups(String pickups) {
+        this.pickups = pickups;
+    }
+
+    public String getScale() {
+        return scale;
+    }
+
+    public void setScale(String scale) {
+        this.scale = scale;
     }
 }

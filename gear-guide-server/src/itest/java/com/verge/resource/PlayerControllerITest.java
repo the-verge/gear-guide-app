@@ -1,4 +1,4 @@
-package com.verge.resource.impl;
+package com.verge.resource;
 
 import com.verge.dto.PlayerInfo;
 import org.flywaydb.test.annotation.FlywayTest;

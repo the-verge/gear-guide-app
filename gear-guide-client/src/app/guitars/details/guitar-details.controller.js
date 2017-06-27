@@ -1,11 +1,9 @@
 export default class GuitarDetailsController {
 
-    constructor($stateParams, guitarResource) {
+    constructor($stateParams, guitarDetailsService) {
         'ngInject';
 
-        this.$stateParams = $stateParams;
-        this.guitarResource = guitarResource;
-
-        this.guitar = this.guitarResource.getGuitar({id: this.$stateParams.id});
+        this.guitarDetailsService = guitarDetailsService;
+        this.guitar = this.guitarDetailsService.loadGuitar({id: $stateParams.id});
     }
 }

@@ -1,0 +1,165 @@
+<div>
+    <div ncy-breadcrumb></div>
+    <uib-tabset>
+
+        <!-- PLAYERS -->
+        <uib-tab index="0" heading="Player">
+            <uib-tab-heading>
+                <img class="img-responsive" alt="Create player" ng-src="/assets/images/player-icon.png">
+            </uib-tab-heading>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                <label class="control-label">Name</label>
+                                <input class="form-control" type="text" ng-model="vm.player.name"/>
+                            </div>
+                            <form class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="control-label">Guitars</label>
+                                    <multiselect ng-model="vm.player.guitars" options="vm.options" show-search="true"></multiselect>
+                                </div>
+                                <div class="form-group ">
+                                    <label class="control-label requiredField">Amplifiers</label>
+                                    <multiselect ng-model="vm.player.amplifiers" options="vm.options" show-search="true"></multiselect>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Effects</label>
+                                    <multiselect ng-model="vm.player.effects" options="vm.options" show-search="true"></multiselect>
+                                </div>
+                                <div class="form-group">
+                                    <div>
+                                        <button class="btn btn-success" type="submit" ng-click="vm.createPlayer()">Create player</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </form>
+                    </div>
+                    <div class="col-md-5 col-md-offset-1 col-sm-6 col-xs-12">
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                <label class="control-label">Description</label>
+                                <textarea class="form-control" cols="40" rows="9" ng-model="vm.player.description"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Image</label>
+                                <input type="file" class="admin-file-input"/>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </uib-tab>
+
+        <!-- GUITARS -->
+        <uib-tab index="1" heading="Guitar">
+            <uib-tab-heading>
+                <img class="img-responsive" alt="Create guitar" ng-src="/assets/images/guitar-icon.png">
+            </uib-tab-heading>
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                <label class="control-label">Manufacturer</label>
+                                <select class="form-control" ng-model="vm.guitar.manufacturer">
+                                    <option>Gibson</option>
+                                    <option>Fender</option>
+                                    <option>Gretsch</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Model</label>
+                                <input class="form-control" type="text" ng-model="vm.guitar.model"/>
+                            </div>
+                            <div class="form-group ">
+                                <label class="control-label">Pickups</label>
+                                <input class="form-control"type="text" ng-model="vm.guitar.pickups"/>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Scale length</label>
+                                <input type="number" step="0.25" min="21" class="form-control" ng-model="vm.guitar.scale">
+                            </div>
+                            <div class="form-group">
+                                <div>
+                                    <button class="btn btn-success" type="submit" ng-click="vm.createGuitar()">Create guitar</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-md-5 col-md-offset-1 col-sm-6 col-xs-12">
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                <label class="control-label">Description</label>
+                                <textarea class="form-control" cols="40" rows="9" ng-model="vm.guitar.description"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Image</label>
+                                <input type="file" class="admin-file-input"/>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </uib-tab>
+
+        <!-- AMPLIFIERS -->
+        <uib-tab index="2" heading="Amplifier">
+            <uib-tab-heading>
+                <img class="img-responsive" alt="Create amplifier" ng-src="/assets/images/amp-icon.png">
+            </uib-tab-heading>
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                <label class="control-label">Manufacturer</label>
+                                <select class="form-control">
+                                    <option>Gibson</option>
+                                    <option>Fender</option>
+                                    <option>Gretsch</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Model</label>
+                                <input class="form-control" type="text"/>
+                            </div>
+                            <div class="form-group ">
+                                <label class="control-label">Valves</label>
+                                <input class="form-control"type="text"/>
+                            </div>
+                            <div class="form-group">
+                                <div>
+                                    <button class="btn btn-success" type="submit">Create guitar</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-md-5 col-md-offset-1 col-sm-6 col-xs-12">
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                <label class="control-label">Description</label>
+                                <textarea class="form-control" cols="40" rows="5"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Image</label>
+                                <input type="file" class="admin-file-input"/>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </uib-tab>
+
+        <!-- EFFECTS -->
+        <uib-tab index="3" heading="Effect">
+            <uib-tab-heading>
+                <img class="img-responsive" alt="Create effect" ng-src="/assets/images/effect-icon.png">
+            </uib-tab-heading>
+
+        </uib-tab>
+    </uib-tabset>
+</div>

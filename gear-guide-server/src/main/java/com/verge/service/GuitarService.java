@@ -1,5 +1,6 @@
 package com.verge.service;
 
+import com.google.common.collect.Lists;
 import com.verge.dto.GuitarInfo;
 import com.verge.entity.Guitar;
 import com.verge.mapping.GuitarMapper;
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 import static org.springframework.http.HttpStatus.NOT_FOUND;
@@ -25,6 +27,10 @@ public class GuitarService {
     public GuitarService(GuitarRepository repository, GuitarMapper mapper) {
         this.repository = repository;
         this.mapper = mapper;
+    }
+
+    public List<GuitarInfo> findAll() {
+        return mapper.entitiesToDtos(Lists.newArrayList(repository.findAll()));
     }
 
     public ResponseEntity<GuitarInfo> findById(Long id) {

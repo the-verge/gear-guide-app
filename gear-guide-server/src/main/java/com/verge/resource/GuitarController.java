@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/guitars")
 public class GuitarController {
@@ -18,6 +20,11 @@ public class GuitarController {
     @Autowired
     public GuitarController(GuitarService service) {
         this.service = service;
+    }
+
+    @RequestMapping(method = RequestMethod.GET)
+    public List<GuitarInfo> findAll() {
+        return service.findAll();
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)

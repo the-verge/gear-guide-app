@@ -4,7 +4,8 @@ angular.module(moduleName, [
     'ngResource',
     'ui.router',
     'ui.bootstrap',
-    'ncy-angular-breadcrumb'
+    'ncy-angular-breadcrumb',
+    'btorfs.multiselect'
 ])
 .constant('API_ROOT', '/api/');
 

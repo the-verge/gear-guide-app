@@ -1,10 +1,7 @@
-export default class PlayersController {
-
+export default class AdminService {
     constructor(playersService) {
         'ngInject';
 
         this.playersService = playersService;
-        this.players = playersService.getPlayers();
     }
-
 }

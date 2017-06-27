@@ -1,13 +1,14 @@
 export default class PlayerDetailsController {
 
-    constructor($stateParams, playerResource) {
+    constructor($stateParams, playerDetailsService) {
         'ngInject';
 
-        this.$stateParams = $stateParams;
-        this.playerResource = playerResource;
-
-        this.player = this.playerResource.getPlayer({id: this.$stateParams.id});
+        this.playerDetailsService = playerDetailsService;
+        this.loadPlayer($stateParams.id);
     }
 
+    loadPlayer(id) {
+        this.player = this.playerDetailsService.getPlayer(id);
+    }
 
 }

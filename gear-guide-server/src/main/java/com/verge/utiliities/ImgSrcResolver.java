@@ -1,5 +1,6 @@
 package com.verge.utiliities;
 
+import com.verge.type.HasImg;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 

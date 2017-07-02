@@ -1,9 +1,9 @@
 package com.verge.repository;
 
-import com.verge.entity.Effect;
+import com.verge.entity.Manufacturer;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface EffectRepository extends CrudRepository<Effect, Long> {
+public interface ManufacturerRepository extends CrudRepository<Manufacturer, Long> {
 }

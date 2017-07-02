@@ -1,6 +1,8 @@
 package com.verge.dto;
 
-public class ManufacturerInfo {
+import com.verge.type.HasName;
+
+public class ManufacturerInfo implements HasName {
 
     private Long id;
 
@@ -14,6 +16,7 @@ public class ManufacturerInfo {
         this.id = id;
     }
 
+    @Override
     public String getName() {
         return name;
     }

@@ -10,12 +10,12 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                        <form class="form-horizontal">
+                        <div class="form-horizontal">
                             <div class="form-group">
                                 <label class="control-label">Name</label>
                                 <input class="form-control" type="text" ng-model="vm.player.name"/>
                             </div>
-                            <form class="form-horizontal">
+                            <div class="form-horizontal">
                                 <div class="form-group">
                                     <label class="control-label">Guitars</label>
                                     <multiselect ng-model="vm.player.guitars" options="vm.options" show-search="true"></multiselect>
@@ -30,14 +30,14 @@
                                 </div>
                                 <div class="form-group">
                                     <div>
-                                        <button class="btn btn-success" type="submit" ng-click="vm.createPlayer()">Create player</button>
+                                        <button class="btn btn-success" ng-click="vm.createPlayer()">Create player</button>
                                     </div>
                                 </div>
-                            </form>
-                        </form>
+                            </div>
+                        </div>
                     </div>
                     <div class="col-md-5 col-md-offset-1 col-sm-6 col-xs-12">
-                        <form class="form-horizontal">
+                        <div class="form-horizontal">
                             <div class="form-group">
                                 <label class="control-label">Description</label>
                                 <textarea class="form-control" cols="40" rows="9" ng-model="vm.player.description"></textarea>
@@ -46,7 +46,7 @@
                                 <label class="control-label">Image</label>
                                 <input type="file" class="admin-file-input"/>
                             </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -61,7 +61,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                        <form class="form-horizontal">
+                        <div class="form-horizontal">
                             <div class="form-group">
                                 <label class="control-label">Manufacturer</label>
                                 <select class="form-control" ng-model="vm.guitar.manufacturer">
@@ -84,13 +84,13 @@
                             </div>
                             <div class="form-group">
                                 <div>
-                                    <button class="btn btn-success" type="submit" ng-click="vm.createGuitar()">Create guitar</button>
+                                    <button class="btn btn-success" ng-click="vm.createGuitar()">Create guitar</button>
                                 </div>
                             </div>
-                        </form>
+                        </div>
                     </div>
                     <div class="col-md-5 col-md-offset-1 col-sm-6 col-xs-12">
-                        <form class="form-horizontal">
+                        <div class="form-horizontal">
                             <div class="form-group">
                                 <label class="control-label">Description</label>
                                 <textarea class="form-control" cols="40" rows="9" ng-model="vm.guitar.description"></textarea>
@@ -99,7 +99,7 @@
                                 <label class="control-label">Image</label>
                                 <input type="file" class="admin-file-input"/>
                             </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -114,7 +114,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                        <form class="form-horizontal">
+                        <div class="form-horizontal">
                             <div class="form-group">
                                 <label class="control-label">Manufacturer</label>
                                 <select class="form-control">
@@ -133,13 +133,13 @@
                             </div>
                             <div class="form-group">
                                 <div>
-                                    <button class="btn btn-success" type="submit">Create guitar</button>
+                                    <button class="btn btn-success" ng-click="vm.createAmplifier()">Create amplifier</button>
                                 </div>
                             </div>
-                        </form>
+                        </div>
                     </div>
                     <div class="col-md-5 col-md-offset-1 col-sm-6 col-xs-12">
-                        <form class="form-horizontal">
+                        <div class="form-horizontal">
                             <div class="form-group">
                                 <label class="control-label">Description</label>
                                 <textarea class="form-control" cols="40" rows="5"></textarea>
@@ -148,7 +148,7 @@
                                 <label class="control-label">Image</label>
                                 <input type="file" class="admin-file-input"/>
                             </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>

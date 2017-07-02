@@ -1,6 +1,8 @@
 package com.verge.entity;
 
-import com.verge.utiliities.HasImg;
+
+import com.verge.type.HasImg;
+import com.verge.type.HasName;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,7 +18,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "Player")
-public class Player implements HasImg {
+public class Player implements HasName, HasImg {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -54,6 +56,7 @@ public class Player implements HasImg {
         this.id = id;
     }
 
+    @Override
     public String getName() {
         return name;
     }

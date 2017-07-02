@@ -1,4 +1,4 @@
-package com.verge.utiliities;
+package com.verge.type;
 
 public interface HasImg {
 

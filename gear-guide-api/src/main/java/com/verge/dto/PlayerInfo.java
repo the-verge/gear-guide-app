@@ -1,9 +1,11 @@
 package com.verge.dto;
 
 
+import com.verge.type.HasName;
+
 import java.util.List;
 
-public class PlayerInfo {
+public class PlayerInfo implements HasName {
 
     private Long id;
 
@@ -15,7 +17,7 @@ public class PlayerInfo {
 
     private List<GuitarInfo> guitars;
 
-    private List<AmpInfo> amplifiers;
+    private List<AmplifierInfo> amplifiers;
 
     public Long getId() {
         return id;
@@ -25,6 +27,7 @@ public class PlayerInfo {
         this.id = id;
     }
 
+    @Override
     public String getName() {
         return name;
     }
@@ -57,11 +60,11 @@ public class PlayerInfo {
         this.guitars = guitars;
     }
 
-    public List<AmpInfo> getAmplifiers() {
+    public List<AmplifierInfo> getAmplifiers() {
         return amplifiers;
     }
 
-    public void setAmplifiers(List<AmpInfo> amplifiers) {
+    public void setAmplifiers(List<AmplifierInfo> amplifiers) {
         this.amplifiers = amplifiers;
     }
 }

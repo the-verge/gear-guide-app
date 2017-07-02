@@ -1,6 +1,7 @@
 package com.verge.entity;
 
-import com.verge.utiliities.HasImg;
+
+import com.verge.type.HasImg;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

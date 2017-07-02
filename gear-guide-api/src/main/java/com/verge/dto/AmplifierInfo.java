@@ -1,6 +1,6 @@
 package com.verge.dto;
 
-public class AmpInfo extends BaseGearInfo {
+public class AmplifierInfo extends BaseGearInfo {
 
     private String valves;
 

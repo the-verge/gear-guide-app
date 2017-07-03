@@ -34,8 +34,8 @@ public class AmplifierService {
     }
 
     public ResponseEntity<AmplifierInfo> findById(Long id) {
-        Optional<Amplifier> guitar = Optional.ofNullable(repository.findOne(id));
-        return guitar.isPresent() ? new ResponseEntity<>(mapper.entityToDto(guitar.get(), AmplifierInfo.class), OK) :
+        Optional<Amplifier> amplifier = Optional.ofNullable(repository.findOne(id));
+        return amplifier.isPresent() ? new ResponseEntity<>(mapper.entityToDto(amplifier.get(), AmplifierInfo.class), OK) :
                 new ResponseEntity<>(NOT_FOUND);
     }
 }

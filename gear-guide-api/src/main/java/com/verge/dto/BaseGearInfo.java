@@ -1,6 +1,6 @@
 package com.verge.dto;
 
-public abstract class BaseGearInfo {
+public abstract class BaseGearInfo extends Dto {
 
     protected Long id;
 

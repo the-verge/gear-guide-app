@@ -5,7 +5,9 @@ angular.module(moduleName, [
     'ui.router',
     'ui.bootstrap',
     'ncy-angular-breadcrumb',
-    'btorfs.multiselect'
+    'btorfs.multiselect',
+    'ngAnimate',
+    'toastr'
 ])
 .constant('API_ROOT', '/api/');
 

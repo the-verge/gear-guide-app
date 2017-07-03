@@ -1,8 +1,6 @@
 package com.verge.entity;
 
 
-import com.verge.type.HasImg;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,7 +12,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "Guitar")
-public class Guitar implements HasImg {
+public class Guitar implements GearItem {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -26,9 +24,6 @@ public class Guitar implements HasImg {
 
     @Column(name = "model")
     private String model;
-
-    @Column(name = "year")
-    private Integer year;
 
     @Column(name = "description")
     private String description;
@@ -64,14 +59,6 @@ public class Guitar implements HasImg {
 
     public void setModel(String model) {
         this.model = model;
-    }
-
-    public Integer getYear() {
-        return year;
-    }
-
-    public void setYear(Integer year) {
-        this.year = year;
     }
 
     public String getDescription() {

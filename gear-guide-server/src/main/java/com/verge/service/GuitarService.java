@@ -5,15 +5,13 @@ import com.verge.dto.GuitarInfo;
 import com.verge.entity.Guitar;
 import com.verge.mapping.GearMapper;
 import com.verge.repository.GuitarRepository;
+import com.verge.utiliities.Responses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-
-import static org.springframework.http.HttpStatus.NOT_FOUND;
-import static org.springframework.http.HttpStatus.OK;
 
 
 @Service
@@ -35,7 +33,17 @@ public class GuitarService {
 
     public ResponseEntity<GuitarInfo> findById(Long id) {
         Optional<Guitar> guitar = Optional.ofNullable(repository.findOne(id));
-        return guitar.isPresent() ? new ResponseEntity<>(mapper.entityToDto(guitar.get(), GuitarInfo.class), OK) :
-                new ResponseEntity<>(NOT_FOUND);
+        if (guitar.isPresent()) {
+            GuitarInfo guitarInfo = mapper.entityToDto(guitar.get(), GuitarInfo.class);
+            return Responses.ok(guitarInfo);
+        } else {
+            return Responses.notFound();
+        }
+    }
+
+    public ResponseEntity<GuitarInfo> create(GuitarInfo guitarInfo) {
+        Guitar guitar = mapper.dtoToEntity(guitarInfo, Guitar.class);
+        guitar = repository.save(guitar);
+        return Responses.created(mapper.entityToDto(guitar, GuitarInfo.class));
     }
 }

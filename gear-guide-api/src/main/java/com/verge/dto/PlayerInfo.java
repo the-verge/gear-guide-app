@@ -5,7 +5,7 @@ import com.verge.type.HasName;
 
 import java.util.List;
 
-public class PlayerInfo implements HasName {
+public class PlayerInfo extends Dto implements HasName {
 
     private Long id;
 

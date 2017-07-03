@@ -5,7 +5,7 @@ import java.util.List;
 
 public interface DtoToEntity<D, E> {
 
-    E dtoToEntity(D dto);
+    E dtoToEntity(D dto, Class<E> entityClass);
 
-    List<E> dtosToEntities(Collection<D> dtos);
+    List<E> dtosToEntities(Collection<D> dtos, Class<E> entityClass);
 }

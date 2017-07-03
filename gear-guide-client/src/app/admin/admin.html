@@ -18,7 +18,7 @@
                             <div class="form-horizontal">
                                 <div class="form-group">
                                     <label class="control-label">Guitars</label>
-                                    <multiselect ng-model="vm.player.guitars" options="vm.options" show-search="true"></multiselect>
+                                    <multiselect ng-model="vm.player.guitars" options="vm.guitarOptions" id-prop="id" display-prop="model" show-search="true"></multiselect>
                                 </div>
                                 <div class="form-group ">
                                     <label class="control-label requiredField">Amplifiers</label>
@@ -64,11 +64,9 @@
                         <div class="form-horizontal">
                             <div class="form-group">
                                 <label class="control-label">Manufacturer</label>
-                                <select class="form-control" ng-model="vm.guitar.manufacturer">
-                                    <option>Gibson</option>
-                                    <option>Fender</option>
-                                    <option>Gretsch</option>
-                                </select>
+                                <select class="form-control"
+                                        ng-model="vm.guitar.manufacturer"
+                                        ng-options="manufacturer.name for manufacturer in vm.manufacturerOptions"></select>
                             </div>
                             <div class="form-group">
                                 <label class="control-label">Model</label>

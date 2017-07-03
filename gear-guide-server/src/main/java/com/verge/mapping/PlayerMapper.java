@@ -1,7 +1,11 @@
 package com.verge.mapping;
 
 
+import com.verge.dto.AmplifierInfo;
+import com.verge.dto.GuitarInfo;
 import com.verge.dto.PlayerInfo;
+import com.verge.entity.Amplifier;
+import com.verge.entity.Guitar;
 import com.verge.entity.Player;
 import com.verge.utiliities.ImgSrcResolver;
 import org.modelmapper.ModelMapper;
@@ -13,30 +17,34 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
-public class PlayerMapper implements EntityToDto<Player, PlayerInfo> {
+public class PlayerMapper {
 
     private ImgSrcResolver srcResolver;
 
-    private GuitarMapper guitarMapper;
+    private GearMapper<Guitar, GuitarInfo> guitarMapper;
+
+    private GearMapper<Amplifier, AmplifierInfo> amplifierMapper;
 
     private ModelMapper modelMapper;
 
     @Autowired
-    public PlayerMapper(ImgSrcResolver srcResolver, GuitarMapper guitarMapper, ModelMapper modelMapper) {
+    public PlayerMapper(ImgSrcResolver srcResolver, GearMapper<Guitar, GuitarInfo> guitarMapper, GearMapper<Amplifier,
+            AmplifierInfo> amplifierMapper, ModelMapper modelMapper) {
+
         this.srcResolver = srcResolver;
         this.guitarMapper = guitarMapper;
+        this.amplifierMapper = amplifierMapper;
         this.modelMapper = modelMapper;
     }
 
-    @Override
     public PlayerInfo entityToDto(Player entity) {
         PlayerInfo dto = modelMapper.map(entity, PlayerInfo.class);
         dto.setImgSrc(srcResolver.resolveImgSrc(entity));
-        dto.setGuitars(guitarMapper.entitiesToDtos(entity.getGuitars()));
+        dto.setGuitars(guitarMapper.entitiesToDtos(entity.getGuitars(), GuitarInfo.class));
+        dto.setAmplifiers(amplifierMapper.entitiesToDtos(entity.getAmplifiers(), AmplifierInfo.class));
         return dto;
     }
 
-    @Override
     public List<PlayerInfo> entitiesToDtos(Collection<Player> entities) {
         return entities.stream()
                 .map(e -> entityToDto(e))

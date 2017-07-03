@@ -1,5 +1,7 @@
 package com.verge.entity;
 
+import com.verge.type.HasImg;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,7 +14,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "Effect")
-public class Effect {
+public class Effect implements HasImg {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -75,6 +77,7 @@ public class Effect {
         this.description = description;
     }
 
+    @Override
     public String getImage() {
         return image;
     }

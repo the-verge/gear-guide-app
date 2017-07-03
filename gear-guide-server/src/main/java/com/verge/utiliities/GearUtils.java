@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 
 public class GearUtils {
 
-    public static List<String> getModels(List<? extends BaseGearInfo> dtos) {
+    public static <T extends BaseGearInfo> List<String> getModels(List<T> dtos) {
         return dtos.stream()
                 .map(d -> d.getModel())
                 .collect(Collectors.toList());

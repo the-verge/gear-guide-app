@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 
 public class PlayerUtils {
 
-    public static List<String> getNames(List<? extends HasName> namedObjects) {
+    public static <T extends HasName> List<String> getNames(List<T> namedObjects) {
         return namedObjects.stream()
                 .map(e -> e.getName())
                 .collect(Collectors.toList());

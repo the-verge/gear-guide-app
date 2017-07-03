@@ -30,9 +30,7 @@ public class PlayerService {
 
     public List<PlayerInfo> findAll() {
         List<Player> players = Lists.newArrayList(repository.findAll());
-        return players.stream()
-                .map(entity -> mapper.entityToDto(entity))
-                .collect(Collectors.toList());
+        return mapper.entitiesToDtos(players);
     }
 
     public ResponseEntity<PlayerInfo> findById(Long id) {

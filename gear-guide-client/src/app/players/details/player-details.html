@@ -2,7 +2,7 @@
     <div ncy-breadcrumb></div>
     <div>
         <div class="gear-guide-icon">
-            <img class="img-responsive" alt="{{vm.player.name}}" ng-src="{{vm.player.imgSrc}}">
+            <img class="img-responsive" alt="{{vm.player.name}}" ng-src="{{vm.player.image}}">
         </div>
         <div class="player-description">
             <h1>{{vm.player.name}}</h1>
@@ -17,7 +17,7 @@
                 <div class="col-md-3" ng-repeat="guitar in vm.player.guitars">
                     <div class="gear-guide-icon">
                         <a href="#" ui-sref="guitar-details({id: guitar.id})">
-                            <img class="img-responsive" alt="{{guitar.model}}" ng-src="{{guitar.imgSrc}}">
+                            <img class="img-responsive" alt="{{guitar.model}}" ng-src="{{guitar.image}}">
                         </a>
                     </div>
                     <div>
@@ -35,7 +35,7 @@
                 <div class="col-md-3" ng-repeat="guitar in vm.player.amplifiers">
                     <div class="gear-guide-icon">
                         <a href="#">
-                            <img class="img-responsive" alt="{{amplifier.model}}" ng-src="{{amplifier.imgSrc}}">
+                            <img class="img-responsive" alt="{{amplifier.model}}" ng-src="{{amplifier.image}}">
                         </a>
                     </div>
                     <div>

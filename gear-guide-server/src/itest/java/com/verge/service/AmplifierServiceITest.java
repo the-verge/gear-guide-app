@@ -37,6 +37,6 @@ public class AmplifierServiceITest extends BaseITest {
         assertThat(dto.getModel(), equalTo("JTM45"));
         assertTrue(dto.getDescription().startsWith("The JTM series was a relatively short-lived reissue of the original Marshall amps"));
         assertThat(dto.getValves(), equalTo("12AX7s in the preamp section KT66s in the power section"));
-        assertTrue(dto.getImgSrc().endsWith("marshall-jtm45.png"));
+        assertTrue(dto.getImage().endsWith("marshall-jtm45.png"));
     }
 }

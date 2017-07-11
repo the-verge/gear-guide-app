@@ -32,7 +32,7 @@ public class GearMapper<E extends GearItem, D extends BaseGearInfo> implements E
     @Override
     public D entityToDto(E entity, Class<D> dtoClass) {
         D dto = modelMapper.map(entity, dtoClass);
-        dto.setImgSrc(srcResolver.resolveImgSrc(entity));
+        dto.setImage(srcResolver.resolveImgSrc(entity));
         return dto;
     }
 

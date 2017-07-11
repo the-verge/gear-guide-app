@@ -10,7 +10,7 @@ public abstract class BaseGearInfo extends Dto {
 
     protected String description;
 
-    protected String imgSrc;
+    protected String image;
 
     public Long getId() {
         return id;
@@ -44,11 +44,11 @@ public abstract class BaseGearInfo extends Dto {
         this.description = description;
     }
 
-    public String getImgSrc() {
-        return imgSrc;
+    public String getImage() {
+        return image;
     }
 
-    public void setImgSrc(String imgSrc) {
-        this.imgSrc = imgSrc;
+    public void setImage(String image) {
+        this.image = image;
     }
 }

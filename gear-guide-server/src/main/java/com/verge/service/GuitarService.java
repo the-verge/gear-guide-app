@@ -9,6 +9,8 @@ import com.verge.utiliities.Responses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 import java.util.Optional;
@@ -21,10 +23,13 @@ public class GuitarService {
 
     private GearMapper<Guitar, GuitarInfo> mapper;
 
+    private ImageService imageService;
+
     @Autowired
-    public GuitarService(GuitarRepository repository, GearMapper<Guitar, GuitarInfo> mapper) {
+    public GuitarService(GuitarRepository repository, GearMapper<Guitar, GuitarInfo> mapper, ImageService imageService) {
         this.repository = repository;
         this.mapper = mapper;
+        this.imageService = imageService;
     }
 
     public List<GuitarInfo> findAll() {
@@ -41,9 +46,13 @@ public class GuitarService {
         }
     }
 
-    public ResponseEntity<GuitarInfo> create(GuitarInfo guitarInfo) {
+    @Transactional
+    public ResponseEntity<GuitarInfo> create(GuitarInfo guitarInfo, MultipartFile image) {
+        String imageName = imageService.save(image);
+        guitarInfo.setImage(imageName);
         Guitar guitar = mapper.dtoToEntity(guitarInfo, Guitar.class);
         guitar = repository.save(guitar);
+
         return Responses.created(mapper.entityToDto(guitar, GuitarInfo.class));
     }
 }

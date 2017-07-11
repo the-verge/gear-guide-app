@@ -4,4 +4,8 @@ export default class AmplifiersService {
 
         this.amplifiersResource = amplifiersResource;
     }
+
+    getAmplifiers() {
+        return this.amplifiersResource.get().$promise;
+    }
 }

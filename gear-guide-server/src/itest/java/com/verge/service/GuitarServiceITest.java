@@ -40,6 +40,6 @@ public class GuitarServiceITest extends BaseITest {
         assertTrue(dto.getDescription().startsWith("The Gibson Les Paul is simply one of the most iconic guitars in rock history."));
         assertThat(dto.getPickups(), equalTo("Originally released with P-90s but the definitive configuration came into being in 1958 with the first double humbucker model."));
         assertThat(dto.getScale(), equalTo(24.75));
-        assertTrue(dto.getImgSrc().endsWith("les-paul-standard.png"));
+        assertTrue(dto.getImage().endsWith("les-paul-standard.png"));
     }
 }

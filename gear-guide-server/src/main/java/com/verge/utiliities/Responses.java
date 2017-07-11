@@ -11,18 +11,26 @@ import static org.springframework.http.HttpStatus.OK;
 public class Responses {
 
     public static <T extends Dto> ResponseEntity<T> ok(T dto) {
-        return new ResponseEntity<>(dto, OK);
+        return ResponseEntity
+                .status(OK)
+                .body(dto);
     }
 
     public static ResponseEntity notFound() {
-        return new ResponseEntity<>(NOT_FOUND);
+        return ResponseEntity
+                .status(NOT_FOUND)
+                .build();
     }
 
     public static <T extends Dto> ResponseEntity<T> created(T dto) {
-        return new ResponseEntity<>(dto, CREATED);
+        return ResponseEntity
+                .status(CREATED)
+                .body(dto);
     }
 
     public static ResponseEntity badRequest() {
-        return new ResponseEntity<>(BAD_REQUEST);
+        return ResponseEntity
+                .status(BAD_REQUEST)
+                .build();
     }
 }

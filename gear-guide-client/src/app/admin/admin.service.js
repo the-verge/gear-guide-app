@@ -13,7 +13,7 @@ export default class AdminService {
     }
 
     getAmplifiers() {
-        //TODO
+        return this.amplifiersService.getAmplifiers();
     }
 
     getManufacturers() {

@@ -45,9 +45,6 @@ public class Player implements HasName, HasImg {
             inverseJoinColumns = {@JoinColumn(name = "amplifier_id", referencedColumnName = "id")})
     private Set<Amplifier> amplifiers;
 
-    public Player() {
-    }
-
     public Long getId() {
         return id;
     }

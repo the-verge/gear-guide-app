@@ -39,7 +39,7 @@ public class PlayerMapper {
 
     public PlayerInfo entityToDto(Player entity) {
         PlayerInfo dto = modelMapper.map(entity, PlayerInfo.class);
-        dto.setImgSrc(srcResolver.resolveImgSrc(entity));
+        dto.setImage(srcResolver.resolveImgSrc(entity));
         dto.setGuitars(guitarMapper.entitiesToDtos(entity.getGuitars(), GuitarInfo.class));
         dto.setAmplifiers(amplifierMapper.entitiesToDtos(entity.getAmplifiers(), AmplifierInfo.class));
         return dto;

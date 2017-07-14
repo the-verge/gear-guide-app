@@ -2,8 +2,10 @@ package com.verge.resource;
 
 import com.verge.dto.GuitarInfo;
 import com.verge.service.GuitarService;
+import com.verge.utiliities.Deserialiser;
 import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -37,10 +39,11 @@ public class GuitarController {
         return service.findById(id);
     }
 
-    @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<GuitarInfo> create(@RequestPart("details") @Valid GuitarInfo guitarInfo,
+    @RequestMapping(method = RequestMethod.POST, consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
+    public ResponseEntity<GuitarInfo> create(@RequestPart("details") @Valid String guitarDetails,
                                              @RequestPart("image") @NotNull @NotBlank MultipartFile image) {
 
+        GuitarInfo guitarInfo = Deserialiser.deserialise(guitarDetails, GuitarInfo.class);
         return service.create(guitarInfo, image);
     }
 }

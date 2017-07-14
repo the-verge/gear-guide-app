@@ -2,11 +2,19 @@ package com.verge.dto;
 
 import com.verge.type.HasName;
 
-public class ManufacturerInfo extends Dto implements HasName {
+public class ManufacturerInfo implements Dto, HasName {
 
     private Long id;
 
     private String name;
+
+    public ManufacturerInfo() {
+    }
+
+    public ManufacturerInfo(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 
     public Long getId() {
         return id;

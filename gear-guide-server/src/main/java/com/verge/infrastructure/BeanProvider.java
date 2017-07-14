@@ -11,4 +11,5 @@ public class BeanProvider {
     public ModelMapper modelMapper() {
         return new ModelMapper();
     }
+
 }

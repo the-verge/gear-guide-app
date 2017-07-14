@@ -9,8 +9,8 @@ export default class GuitarsService {
         return this.guitarsResource.get();
     }
 
-    createGuitar(guitar) {
-        return this.guitarsResource.create(guitar).$promise;
+    createGuitar(guitarData) {
+        return this.guitarsResource.create(guitarData).$promise;
     }
 
 }

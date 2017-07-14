@@ -16,7 +16,11 @@ export default ($resource, API_ROOT) => {
 
         create: {
             method: 'post',
-            timeout: 10000
+            timeout: 10000,
+            headers: {
+                'Content-Type': undefined
+            },
+            transformRequest: angular.identity
         }
     });
 };

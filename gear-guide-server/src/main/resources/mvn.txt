@@ -1,0 +1,1 @@
+mvn sonar:sonar -Dsonar.host.url=https://sonarcloud.io -Dsonar.organization=the-verge-github -Dsonar.login=c533e9aa285a22872f6efef5b43b3be7949f795a

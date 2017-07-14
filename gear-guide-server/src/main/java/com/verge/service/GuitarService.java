@@ -5,7 +5,11 @@ import com.verge.dto.GuitarInfo;
 import com.verge.entity.Guitar;
 import com.verge.mapping.GearMapper;
 import com.verge.repository.GuitarRepository;
+import com.verge.service.image.ImageSaveException;
+import com.verge.service.image.ImageService;
 import com.verge.utiliities.Responses;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -18,6 +22,8 @@ import java.util.Optional;
 
 @Service
 public class GuitarService {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(GuitarService.class);
 
     private GuitarRepository repository;
 
@@ -36,7 +42,7 @@ public class GuitarService {
         return mapper.entitiesToDtos(Lists.newArrayList(repository.findAll()), GuitarInfo.class);
     }
 
-    public ResponseEntity<GuitarInfo> findById(Long id) {
+    public ResponseEntity findById(Long id) {
         Optional<Guitar> guitar = Optional.ofNullable(repository.findOne(id));
         if (guitar.isPresent()) {
             GuitarInfo guitarInfo = mapper.entityToDto(guitar.get(), GuitarInfo.class);
@@ -47,8 +53,14 @@ public class GuitarService {
     }
 
     @Transactional
-    public ResponseEntity<GuitarInfo> create(GuitarInfo guitarInfo, MultipartFile image) {
-        String imageName = imageService.save(image);
+    public ResponseEntity create(GuitarInfo guitarInfo, MultipartFile image) {
+        String imageName;
+        try {
+            imageName = imageService.save(image);
+        } catch (ImageSaveException e) {
+            LOGGER.error(e.getMessage(), e);
+            return Responses.internalServerError(e.getMessage());
+        }
         guitarInfo.setImage(imageName);
         Guitar guitar = mapper.dtoToEntity(guitarInfo, Guitar.class);
         guitar = repository.save(guitar);

@@ -41,7 +41,7 @@ public class PlayerControllerITest extends BaseITest {
 
         assertThat(dto.getName(), equalTo("Jimmy Page"));
         assertTrue(dto.getDescription().startsWith("Jimmy Page is the mastermind and sonic architect behind Led Zeppelin"));
-        assertTrue(dto.getImgSrc().endsWith("john-frusciante.jpg"));
+        assertTrue(dto.getImage().endsWith("john-frusciante.jpg"));
 
         List<GuitarInfo> guitars = dto.getGuitars();
         assertThat(guitars.size(), equalTo(3));

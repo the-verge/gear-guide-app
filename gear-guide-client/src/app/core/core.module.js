@@ -7,7 +7,8 @@ angular.module(moduleName, [
     'ncy-angular-breadcrumb',
     'btorfs.multiselect',
     'ngAnimate',
-    'toastr'
+    'toastr',
+    'file-model'
 ])
 .constant('API_ROOT', '/api/');
 

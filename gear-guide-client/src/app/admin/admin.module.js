@@ -5,6 +5,9 @@ import AdminService from './admin.service';
 
 angular.module(moduleName, [])
     .controller('adminController', AdminController)
-    .service('adminService', AdminService);
+    .service('adminService', AdminService)
+    .constant('PLAYER', 'player-img')
+    .constant('GUITAR', 'guitar-img')
+    .constant('AMPLIFIER', 'amplifier-img');
 
 export default moduleName;

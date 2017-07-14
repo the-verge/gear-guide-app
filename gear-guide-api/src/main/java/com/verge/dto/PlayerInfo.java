@@ -5,7 +5,7 @@ import com.verge.type.HasName;
 
 import java.util.List;
 
-public class PlayerInfo extends Dto implements HasName {
+public class PlayerInfo implements Dto, HasName {
 
     private Long id;
 
@@ -13,7 +13,7 @@ public class PlayerInfo extends Dto implements HasName {
 
     private String description;
 
-    private String imgSrc;
+    private String image;
 
     private List<GuitarInfo> guitars;
 
@@ -44,12 +44,12 @@ public class PlayerInfo extends Dto implements HasName {
         this.description = description;
     }
 
-    public String getImgSrc() {
-        return imgSrc;
+    public String getImage() {
+        return image;
     }
 
-    public void setImgSrc(String imgSrc) {
-        this.imgSrc = imgSrc;
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public List<GuitarInfo> getGuitars() {

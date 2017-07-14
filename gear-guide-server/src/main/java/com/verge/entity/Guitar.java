@@ -35,7 +35,7 @@ public class Guitar implements GearItem {
     private String pickups;
 
     @Column(name = "scale")
-    private String scale;
+    private Double scale;
 
     public Long getId() {
         return id;
@@ -86,11 +86,11 @@ public class Guitar implements GearItem {
         this.pickups = pickups;
     }
 
-    public String getScale() {
+    public Double getScale() {
         return scale;
     }
 
-    public void setScale(String scale) {
+    public void setScale(Double scale) {
         this.scale = scale;
     }
 }

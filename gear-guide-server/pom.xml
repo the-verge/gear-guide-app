@@ -67,7 +67,7 @@
             <artifactId>gson</artifactId>
         </dependency>
 
-       <!-- Database dependencies -->
+        <!-- Database dependencies -->
         <dependency>
             <groupId>org.flywaydb</groupId>
             <artifactId>flyway-core</artifactId>
@@ -80,7 +80,6 @@
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
         </dependency>
-
 
         <!-- Test dependencies -->
         <dependency>
@@ -98,8 +97,6 @@
             <artifactId>hamcrest-core</artifactId>
             <scope>test</scope>
         </dependency>
-
-
     </dependencies>
 
     <build>

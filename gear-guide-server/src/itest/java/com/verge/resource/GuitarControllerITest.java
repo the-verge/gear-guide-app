@@ -1,27 +1,28 @@
 package com.verge.resource;
 
 
+import com.google.gson.Gson;
 import com.verge.BaseITest;
 import com.verge.dto.GuitarInfo;
 import com.verge.dto.ManufacturerInfo;
 import org.flywaydb.test.annotation.FlywayTest;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.util.MultiValueMap;
-import org.springframework.web.client.RestTemplate;
+import org.springframework.mock.web.MockMultipartFile;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.URISyntaxException;
 import java.util.List;
 
-import static com.verge.testutils.ITestUtils.createRequest;
-import static com.verge.testutils.ITestUtils.getFormRestTemplate;
 import static com.verge.utiliities.GearUtils.getModels;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsInAnyOrder;
+import static org.hamcrest.Matchers.notNullValue;
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.junit.Assert.assertTrue;
 
@@ -44,6 +45,8 @@ public class GuitarControllerITest extends BaseITest {
     @FlywayTest
     public void testFindById() {
         ResponseEntity<GuitarInfo> response = controller.findById(1L);
+        assertThat(response.getStatusCode(), equalTo(HttpStatus.OK));
+
         GuitarInfo dto = response.getBody();
         assertThat(dto.getManufacturer().getName(), equalTo("Gibson"));
         assertThat(dto.getModel(), equalTo("Les Paul Standard"));
@@ -53,31 +56,42 @@ public class GuitarControllerITest extends BaseITest {
         assertTrue(dto.getImage().endsWith("les-paul-standard.png"));
     }
 
-    @Ignore
     @Test
     @FlywayTest
-    public void testCreate() throws IOException {
-        RestTemplate template = getFormRestTemplate();
+    public void testCreate() throws IOException, URISyntaxException {
+        String details = new Gson().toJson(createGuitarInfo("ES-335"));
 
-        GuitarInfo dto = createGuitarInfo("Gibson", "Les Paul");
-        HttpEntity<MultiValueMap<String, Object>> request = createRequest(dto, new File("/Users/john/code/gear-guide-app/stoker.png"));
+        InputStream inputStream = getClass().getResourceAsStream("/guitar.png");
+        File image = new File("guitar.png");
+        MultipartFile multipartFile = new MockMultipartFile("image", image.getName(), "image/png", inputStream);
 
-        GuitarInfo result = template.postForObject("http://localhost:8080/api/guitars", request, GuitarInfo.class);
+        ResponseEntity<GuitarInfo> response = controller.create(details, multipartFile);
+        assertThat(response.getStatusCode(), equalTo(HttpStatus.CREATED));
+
+        GuitarInfo created = response.getBody();
+
+        assertThat(created.getId(), notNullValue());
+        assertThat(created.getModel(), equalTo("ES-335"));
+        assertThat(created.getManufacturer().getName(), equalTo("Gibson"));
+        assertThat(created.getManufacturer().getId(), equalTo(1L));
+        assertThat(created.getDescription(), equalTo("description"));
+        assertThat(created.getPickups(), equalTo("pickups"));
+        assertThat(created.getScale(), equalTo(24.75));
+        assertTrue(created.getImage().endsWith("guitar.png"));
     }
 
-    public static GuitarInfo createGuitarInfo(String manufacturer, String model) {
+    public static GuitarInfo createGuitarInfo(String model) {
         GuitarInfo guitarInfo = new GuitarInfo();
-        guitarInfo.setManufacturer(createManufacturerInfo(manufacturer));
+        guitarInfo.setManufacturer(createManufacturerInfo());
         guitarInfo.setModel(model);
-        guitarInfo.setDescription("desc");
-        guitarInfo.setPickups("pick");
+        guitarInfo.setDescription("description");
+        guitarInfo.setPickups("pickups");
         guitarInfo.setScale(24.75);
-        guitarInfo.setImage("image");
         return guitarInfo;
     }
 
-    public static ManufacturerInfo createManufacturerInfo(String name) {
-        return new ManufacturerInfo(4L, name);
+    public static ManufacturerInfo createManufacturerInfo() {
+        return new ManufacturerInfo(1L, "Gibson");
     }
 
 }

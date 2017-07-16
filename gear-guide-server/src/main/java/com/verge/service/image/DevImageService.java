@@ -8,7 +8,7 @@ import java.io.File;
 import java.io.IOException;
 
 @Service
-@Profile("dev")
+@Profile({"dev", "!test"})
 public class DevImageService implements ImageService {
 
     @Override
@@ -18,7 +18,7 @@ public class DevImageService implements ImageService {
         try {
             image.transferTo(file);
         } catch (IOException e) {
-            throw new ImageSaveException("Could not save image " + imageName);
+            throw new ImageSaveException("Could not save image " + imageName, e);
         }
         return image.getOriginalFilename();
     }

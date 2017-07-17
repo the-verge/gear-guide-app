@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Component
@@ -52,9 +53,9 @@ public class GearMapper<E extends GearItem, D extends BaseGearInfo> implements E
     }
 
     @Override
-    public List<E> dtosToEntities(Collection<D> dtos, Class<E> entityClass) {
+    public Set<E> dtosToEntities(Collection<D> dtos, Class<E> entityClass) {
         return dtos.stream()
                 .map(d -> dtoToEntity(d, entityClass))
-                .collect(Collectors.toList());
+                .collect(Collectors.toSet());
     }
 }

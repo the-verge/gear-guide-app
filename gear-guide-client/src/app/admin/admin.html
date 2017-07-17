@@ -20,13 +20,13 @@
                                     <label class="control-label">Guitars</label>
                                     <multiselect ng-model="vm.player.guitars" options="vm.guitarOptions" id-prop="id" display-prop="model" show-search="true"></multiselect>
                                 </div>
-                                <div class="form-group ">
-                                    <label class="control-label requiredField">Amplifiers</label>
-                                    <multiselect ng-model="vm.player.amplifiers" options="vm.options" show-search="true"></multiselect>
+                                <div class="form-group">
+                                    <label class="control-label">Amplifiers</label>
+                                    <multiselect ng-model="vm.player.amplifiers" options="vm.amplifierOptions" id-prop="id" display-prop="model" show-search="true"></multiselect>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">Effects</label>
-                                    <multiselect ng-model="vm.player.effects" options="vm.options" show-search="true"></multiselect>
+                                    <multiselect ng-model="vm.player.effects" options="vm.effectOptions" show-search="true"></multiselect>
                                 </div>
                                 <div class="form-group">
                                     <div>
@@ -44,7 +44,7 @@
                             </div>
                             <div class="form-group">
                                 <label class="control-label">Image</label>
-                                <input type="file" class="admin-file-input"/>
+                                <input id="player-img" type="file" class="admin-file-input"/>
                             </div>
                         </div>
                     </div>

@@ -12,6 +12,15 @@ export default ($resource, API_ROOT) => {
             url: API_ROOT + 'players/:id',
             method: 'get',
             timeout: 10000
+        },
+
+        create: {
+            method: 'post',
+            timeout: 10000,
+            headers: {
+                'Content-Type': undefined
+            },
+            transformRequest: angular.identity
         }
     });
 };

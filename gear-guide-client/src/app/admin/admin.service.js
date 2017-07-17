@@ -20,6 +20,10 @@ export default class AdminService {
         return this.manufacturersService.getManufacturers();
     }
 
+    createPlayer(playerData) {
+        return this.playersService.createPlayer(playerData);
+    }
+
     createGuitar(guitarData) {
         return this.guitarsService.createGuitar(guitarData);
     }

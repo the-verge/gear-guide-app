@@ -13,8 +13,7 @@
     "angular-mocks": "^1.6.4",
     "angular-breadcrumb": "^0.5.0",
     "angular-bootstrap-multiselect": "https://github.com/bentorfs/angular-bootstrap-multiselect.git#^1.1.10",
-    "angular-toastr": "^2.1.1",
-    "angular-file-model": "^0.3.1"
+    "angular-toastr": "^2.1.1"
   },
   "overrides": {
     "bootstrap": {
@@ -26,7 +25,7 @@
     }
   },
   "devDependencies": {
-    "angular-bootstrap-multiselect": "https://github.com/bentorfs/angular-bootstrap-multiselect.git#^1.1.10"
+
   },
   "resolutions": {
     "angular": "~1.6.4"

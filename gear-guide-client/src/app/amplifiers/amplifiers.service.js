@@ -6,6 +6,6 @@ export default class AmplifiersService {
     }
 
     getAmplifiers() {
-        return this.amplifiersResource.get().$promise;
+        return this.amplifiersResource.get();
     }
 }

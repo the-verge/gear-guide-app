@@ -8,4 +8,8 @@ export default class PlayersService {
     getPlayers() {
         return this.playerResource.get();
     }
+
+    createPlayer(playerData) {
+        return this.playerResource.create(playerData).$promise;
+    }
 }

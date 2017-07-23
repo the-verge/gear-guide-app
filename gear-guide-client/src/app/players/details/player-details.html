@@ -1,7 +1,7 @@
 <div>
     <div ncy-breadcrumb></div>
     <div>
-        <div class="gear-guide-icon">
+        <div class="player-icon">
             <img class="img-responsive" alt="{{vm.player.name}}" ng-src="{{vm.player.image}}">
         </div>
         <div class="player-description">
@@ -11,34 +11,40 @@
     <uib-tabset>
         <uib-tab index="0" heading="Guitars">
             <uib-tab-heading>
-                <img class="img-responsive" alt="Guitars" ng-src="/assets/images/guitar-icon.png">
+                <img class="img-responsive player-details-guitar-tab" alt="Guitars" ng-src="/assets/images/guitar-icon.png">
             </uib-tab-heading>
             <div class="row">
-                <div class="col-md-3" ng-repeat="guitar in vm.player.guitars">
-                    <div class="gear-guide-icon">
+                <div class="col-md-3 player-details-guitar" ng-repeat="guitar in vm.player.guitars">
+                    <div class="player-details-icon">
                         <a href="#" ui-sref="guitar-details({id: guitar.id})">
                             <img class="img-responsive" alt="{{guitar.model}}" ng-src="{{guitar.image}}">
                         </a>
                     </div>
                     <div>
-                        <h4>{{guitar.manufacturer.name}} {{guitar.model}}</h4>
+                        <h4 class="player-details-text-guitar">
+                            <span class="player-details-guitar-manufacturer">{{guitar.manufacturer.name}}</span>
+                            <span class="player-details-guitar-model">{{guitar.model}}</span>
+                        </h4>
                     </div>
                 </div>
             </div>
         </uib-tab>
         <uib-tab index="1" heading="Amplifiers">
             <uib-tab-heading>
-                <img class="img-responsive" alt="Amplifiers" ng-src="/assets/images/amp-icon.png">
+                <img class="img-responsive player-details-amplifier-tab" alt="Amplifiers" ng-src="/assets/images/amp-icon.png">
             </uib-tab-heading>
             <div class="row">
-                <div class="col-md-3" ng-repeat="guitar in vm.player.amplifiers">
-                    <div class="gear-guide-icon">
+                <div class="col-md-3 player-details-amplifier" ng-repeat="amplifier in vm.player.amplifiers">
+                    <div class="player-details-icon">
                         <a href="#">
                             <img class="img-responsive" alt="{{amplifier.model}}" ng-src="{{amplifier.image}}">
                         </a>
                     </div>
                     <div>
-                        <h4>{{guitar.manufacturer.name}} {{guitar.model}}</h4>
+                        <h4 class="player-details-text-amplifier">
+                            <span class="player-details-amplifier-manufacturer">{{amplifier.manufacturer.name}}</span>
+                            <span class="player-details-amplifier-model">{{amplifier.model}}</span>
+                        </h4>
                     </div>
                 </div>
             </div>

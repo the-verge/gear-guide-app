@@ -4,28 +4,14 @@
         <div class="container-fluid gear-guide-logo">
             <img class="img-responsive" alt="Gear Guide" ng-src="/assets/images/main-logo.png">
         </div>
-        <!--<div class="row">-->
-            <!--<div class="col-md-6" ng-repeat="player in vm.players">-->
-                <!--<div class="row">-->
-                    <!--<div class="col-md-5 gear-guide-icon">-->
-                        <!--<a href="#" ui-sref="player-details({id: player.id})">-->
-                            <!--<img class="img-responsive" alt="{{player.name}}" ng-src="{{player.image}}">-->
-                        <!--</a>-->
-                    <!--</div>-->
-                    <!--<div class="col-md-5 player-description">-->
-                        <!--<p>{{player.description}}</p>-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
         <div class="row">
             <div class="col-md-6 list-group my-list-group left">
-                <div class="list-group-item" ng-repeat="player in vm.players" ng-if="$index % 2 == 0">
+                <div class="list-group-item player" ng-repeat="player in vm.players" ng-if="$index % 2 == 0">
                     <div>
-                        <h3>{{player.name}}</h3>
+                        <h3 class="player-name">{{player.name}}</h3>
                     </div>
                     <div class="row">
-                        <div class="col-md-5 gear-guide-icon">
+                        <div class="col-md-5 player-icon">
                             <a href="#" ui-sref="player-details({id: player.id})">
                                 <img class="img-responsive" alt="{{player.name}}" ng-src="{{player.image}}">
                             </a>
@@ -37,12 +23,12 @@
                 </div>
             </div>
             <div class="col-md-6 list-group my-list-group right">
-                <div class="list-group-item" ng-repeat="player in vm.players" ng-if="$index % 2 != 0">
+                <div class="list-group-item player" ng-repeat="player in vm.players" ng-if="$index % 2 != 0">
                     <div>
-                        <h3>{{player.name}}</h3>
+                        <h3 class="player-name">{{player.name}}</h3>
                     </div>
                     <div class="row">
-                        <div class="col-md-5 gear-guide-icon">
+                        <div class="col-md-5 player-icon">
                             <a href="#" ui-sref="player-details({id: player.id})">
                                 <img class="img-responsive" alt="{{player.name}}" ng-src="{{player.image}}">
                             </a>

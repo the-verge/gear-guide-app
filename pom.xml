@@ -12,6 +12,7 @@
         <module>gear-guide-bom</module>
         <module>gear-guide-api</module>
         <module>gear-guide-client</module>
+        <module>gear-guide-ui-tests</module>
     </modules>
     <packaging>pom</packaging>
 

@@ -8,6 +8,7 @@ import static org.springframework.http.HttpStatus.CREATED;
 import static org.springframework.http.HttpStatus.INTERNAL_SERVER_ERROR;
 import static org.springframework.http.HttpStatus.NOT_FOUND;
 import static org.springframework.http.HttpStatus.OK;
+import static org.springframework.http.HttpStatus.UNAUTHORIZED;
 
 public final class Responses {
 
@@ -18,6 +19,12 @@ public final class Responses {
         return ResponseEntity
                 .status(OK)
                 .body(dto);
+    }
+
+    public static ResponseEntity ok() {
+        return ResponseEntity
+                .status(OK)
+                .build();
     }
 
     public static ResponseEntity notFound() {
@@ -41,6 +48,12 @@ public final class Responses {
     public static ResponseEntity internalServerError(String msg) {
         return ResponseEntity
                 .status(INTERNAL_SERVER_ERROR)
+                .body(msg);
+    }
+
+    public static ResponseEntity unauthorized(String msg) {
+        return ResponseEntity
+                .status(UNAUTHORIZED)
                 .body(msg);
     }
 }

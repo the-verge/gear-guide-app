@@ -44,6 +44,7 @@ public class PlayerController {
         return service.nameLike(query);
     }
 
+    @SuppressWarnings("unchecked")
     @RequestMapping(method = RequestMethod.POST, consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
     public ResponseEntity<GuitarInfo> create(@RequestPart("details") @NotNull String playerDetails,
                                              @RequestPart("image") @NotNull MultipartFile image) {

@@ -3,6 +3,7 @@ package com.verge.infrastructure.security;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.encoding.LdapShaPasswordEncoder;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -33,17 +34,17 @@ public class LdapSecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity
-                .csrf().disable()
+                .csrf().disable();
 //                .exceptionHandling()
 //                .authenticationEntryPoint(entryPoint)
 //                .and()
-                .authorizeRequests()
+//                .authorizeRequests()
 //                .antMatchers(HttpMethod.POST, "/api/login")
 //                .permitAll()
-                .anyRequest()
-                .fullyAuthenticated()
-                .and()
-                .httpBasic();
+//                .anyRequest()
+//                .fullyAuthenticated()
+//                .and()
+//                .httpBasic();
 
     }
 

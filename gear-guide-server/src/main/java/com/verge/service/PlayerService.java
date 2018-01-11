@@ -34,6 +34,9 @@ public class PlayerService {
 
     private ImageService imageService;
 
+    public PlayerService() {
+    }
+
     @Autowired
     public PlayerService(PlayerRepository repository, PlayerMapper mapper, ImageService imageService) {
         this.repository = repository;

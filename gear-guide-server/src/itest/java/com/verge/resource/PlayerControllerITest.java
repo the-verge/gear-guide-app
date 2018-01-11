@@ -1,5 +1,6 @@
 package com.verge.resource;
 
+import com.google.common.collect.Lists;
 import com.verge.BaseITest;
 import com.verge.dto.AmplifierInfo;
 import com.verge.dto.GuitarInfo;
@@ -7,6 +8,7 @@ import com.verge.dto.PlayerInfo;
 import org.flywaydb.test.annotation.FlywayTest;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.ResponseEntity;
 
 import java.util.List;
@@ -23,10 +25,14 @@ public class PlayerControllerITest extends BaseITest {
     @Autowired
     private PlayerController controller;
 
+    @Autowired
+    private TestRestTemplate restTemplate;
+
     @Test
     @FlywayTest
     public void testFindAll() {
-        List<PlayerInfo> dtos = controller.findAll();
+        ResponseEntity<PlayerInfo[]> response = restTemplate.getForEntity("/players", PlayerInfo[].class);
+        List<PlayerInfo> dtos = Lists.newArrayList(response.getBody());
         assertThat(dtos.size(), equalTo(6));
 
         List<String> playerNames = getNames(dtos);
@@ -36,7 +42,7 @@ public class PlayerControllerITest extends BaseITest {
     @Test
     @FlywayTest
     public void testFindById() {
-        ResponseEntity<PlayerInfo> response = controller.findById(1L);
+        ResponseEntity<PlayerInfo> response = restTemplate.getForEntity("/players/1", PlayerInfo.class);
         PlayerInfo dto = response.getBody();
 
         assertThat(dto.getName(), equalTo("Jimmy Page"));
